@@ -1,0 +1,26 @@
+### Spring properties
+# Service registers under this name
+spring:
+  application:
+    name: apigateway-microservice
+
+# Discovery Server Access
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:1111/eureka/
+
+# HTTP Server (Tomcat) Port
+server: 
+  port: 2222
+
+# Disable Spring Boot's "Whitelabel" default error page, so we can use our own
+error:
+  whitelabel:
+    enabled: false
+
+zuul:
+    routes:
+        students:
+            path: /students/**
+            serviceId: students-microservice
